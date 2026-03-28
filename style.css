@@ -1,0 +1,36 @@
+/* setup */
+:root {
+    --bg: #000000;
+    --shade1: #070712;
+    --panel: #0D0D24;
+    --shade2: #181832;
+    --card: #23233F;
+    --text: #ffffff;
+    --accent: #bbbbfa
+}
+@font-face {
+    font-family: Header;
+    src: url(./fonts/SpaceMono-Bold.ttf);
+}
+@font-face {
+    font-family: Text;
+    src: url(./fonts/RobotoMono-VariableFont_wght.ttf);
+}
+/* defaults */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: Text;
+}
+h1, h2, h3, p, li {
+    margin: 0;
+}
+.panel {
+    background-color: var(--panel);
+}
+.card {
+    background-color: var(--card);
+}
+.svg {
+    fill: black;
+}
