@@ -17,12 +17,17 @@
     src: url(./fonts/RobotoMono-VariableFont_wght.ttf);
 }
 /* defaults */
+html, body {
+    min-height: 100%;
+}
 body {
     background-color: var(--bg);
     color: var(--text);
     font-family: Text;
+    display: flex;
+    height: 100%;
 }
-h1, h2, h3, p, li {
+h1, h2, h3, p, li, ul {
     margin: 0;
 }
 .panel {
@@ -32,5 +37,29 @@ h1, h2, h3, p, li {
     background-color: var(--card);
 }
 .svg {
-    fill: black;
+    height: 15px;
+}
+/* sidebar */
+header {
+    width: 300px;
+}
+.channelList {
+    list-style-image: url(./imgs/icons/comment-svgrepo-com.svg);
+    font-size: 1.5rem;
+}
+.profile {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    gap: 15px;
+}
+.profile .pfp {
+    height: 75px;
+    border-radius: 100%;
+}
+/* popup */
+#profilePopup {
+    position: absolute;
+    display: none;
 }
