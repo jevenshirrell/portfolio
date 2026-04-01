@@ -16,25 +16,35 @@
     font-family: Text;
     src: url(./fonts/RobotoMono-VariableFont_wght.ttf);
 }
-/* defaults */
-html, body {
-    min-height: 100%;
+* {
+    box-sizing: border-box;
 }
+html {
+    height: 100%;
+}
+/* defaults */
 body {
     background-color: var(--bg);
     color: var(--text);
     font-family: Text;
     display: flex;
+    gap: 15px;
     height: 100%;
+    margin: 0;
+    padding: 15px;
 }
 h1, h2, h3, p, li, ul {
     margin: 0;
 }
 .panel {
     background-color: var(--panel);
+    padding: 10px;
+    border-radius: 20px;
 }
 .card {
     background-color: var(--card);
+    padding: 5px;
+    border-radius: 15px;
 }
 .svg {
     height: 15px;
@@ -42,10 +52,24 @@ h1, h2, h3, p, li, ul {
 /* sidebar */
 header {
     width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    background-color: var(--shade1) !important;
 }
 .channelList {
     list-style-image: url(./imgs/icons/comment-svgrepo-com.svg);
-    font-size: 1.5rem;
+    list-style-position: inside;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+.channelList li {
+    background-color: var(--shade2) !important;
 }
 .profile {
     height: 100px;
@@ -53,10 +77,14 @@ header {
     align-items: center;
     padding: 15px;
     gap: 15px;
+    justify-self: flex-end;
 }
 .profile .pfp {
     height: 75px;
     border-radius: 100%;
+}
+header img {
+    margin-left: -10px;
 }
 /* popup */
 #profilePopup {
