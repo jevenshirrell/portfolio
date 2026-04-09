@@ -67,6 +67,11 @@ h1, h2, h3, p, li, ul {
     color: var(--bg);
     font-family: Header;
     font-size: 1rem;
+    transition: background-color 150ms;
+}
+.button1:hover {
+    background-color: color-mix(in srgb, var(--accent), white 50%);
+    cursor: pointer;
 }
 
 /* sidebar */
@@ -91,6 +96,11 @@ header {
 }
 .channelList li {
     background-color: var(--shade2) !important;
+    transition: background-color 150ms;
+}
+.channelList li:hover {
+    background-color: color-mix(in srgb, var(--shade2), white 5%) !important;
+    cursor: pointer;
 }
 /* mini profile */
 .profile {
@@ -100,6 +110,12 @@ header {
     padding: 15px;
     gap: 15px;
     justify-self: flex-end;
+    user-select: none;
+    transition: background-color 150ms;
+}
+.profile:hover {
+    cursor: pointer;
+    background-color: color-mix(in srgb, var(--panel), white 5%);
 }
 .profile .pfp {
     height: 75px;
@@ -129,8 +145,16 @@ main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     overflow: auto;
+}
+#messagesWrapper::-webkit-scrollbar {
+    width: 25px;
+}
+#messagesWrapper::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 10px 10px var(--card);
+    border: solid 10px transparent;
+    border-radius: 15px;
 }
 /* message */
 .msg {
@@ -149,8 +173,8 @@ main {
 /* popup */
 #profilePopup {
     position: absolute;
-    left: 25px;
-    bottom: 135px;
+    left: 26px;
+    bottom: 141px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -174,6 +198,7 @@ main {
     list-style-position: inside;
     list-style-type: '- ';
     padding: 0;
+    margin-bottom: 15px;
 }
 /* buttons */
 .btns {
