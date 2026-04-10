@@ -1,4 +1,3 @@
-// TODO: skip btn
 let channels = {
     "Home":[
         '<h2>Welcome to my portfolio website!</h2> You can use the channels on the left to navigate through different sections. If you want a quick overview, click my profile on the bottom of the channel list.', 
@@ -58,51 +57,56 @@ $(document.body).on('click', () => {
 
 // channels
 $('.channel').on('click', function() {
-    if (!typing && activeChannel != this.textContent) {
-        $('.channel').removeClass('activeChannel')
-        $(this).addClass('activeChannel')
-        switchChannel(this.textContent)
-    } 
+    switchChannel(this.textContent)
 })
 
 // messages
 function switchChannel(channel) {
-    let idx = Object.keys(channels).indexOf(channel)
-    activeChannel = channel
-    
-    $('#messagesWrapper').children().each(function() {
-        $(this).fadeOut(150, () => {
-            $(this).remove()
+    if (!typing && activeChannel != channel) {
+        let idx = Object.keys(channels).indexOf(channel)
+        activeChannel = channel
+        
+        // active channel
+        $('.channel').removeClass('activeChannel')
+        $(`#channel${idx + 1}`).addClass('activeChannel')
+
+        // close previous channel
+        $('#messagesWrapper').children().each(function() {
+            $(this).fadeOut(150, () => {
+                $(this).remove()
+            })
         })
-    })
-    if (channelProgress[idx] > 0) {
-        $.each(channels[activeChannel].slice(0, channelProgress[idx]), (index, value) => {
-            setTimeout(() => {
-                newMessage(value)
-                $('#messagesWrapper').children().last().hide().fadeIn(150)
-            }, 150)
-        })
-        $('#messagesWrapper').animate({scrollTop: $('#messagesWrapper')[0].scrollHeight}, 300)
-    }
-    if (channelProgress[idx] < channels[activeChannel].length) {
-        typing = true
-        setTimeout(() => {
-            $('#channelName h3').html(channel)
-            $('#animWrapper').fadeIn(150).css({'display':'flex'})
-            $.each(channels[activeChannel].slice(channelProgress[idx], channels[activeChannel].length), (index, value) => {
+        // load seen messages
+        if (channelProgress[idx] > 0) {
+            $.each(channels[activeChannel].slice(0, channelProgress[idx]), (index, value) => {
                 setTimeout(() => {
                     newMessage(value)
-                    $('#messagesWrapper').children().last().hide().delay(1000).fadeIn(150)
-                    $('#messagesWrapper').delay(1000).animate({scrollTop: $('#messagesWrapper')[0].scrollHeight}, 300)
-    
-                    channelProgress[idx]++
-                }, 1150 * index)
+                    $('#messagesWrapper').children().last().hide().fadeIn(150)
+                }, 150)
             })
+            $('#messagesWrapper').delay(155).animate({scrollTop: $('#messagesWrapper')[0].scrollHeight}, 300)
+        }
+        // load unseen messages
+        if (channelProgress[idx] < channels[activeChannel].length) {
+            typing = true
             setTimeout(() => {
-                $('#animWrapper').fadeOut(150)
-                typing = false
-            }, 1150 * channels[activeChannel].length)
-        }, 150 + (idx > 0 ? 150 : 0))
+                $('#channelName h3').html(channel)
+                $('#animWrapper').fadeIn(150).css({'display':'flex'})
+                $.each(channels[activeChannel].slice(channelProgress[idx], channels[activeChannel].length), (index, value) => {
+                    setTimeout(() => {
+                        newMessage(value)
+                        $('#messagesWrapper').children().last().hide().delay(1000).fadeIn(150)
+                        $('#messagesWrapper').delay(1000).animate({scrollTop: $('#messagesWrapper')[0].scrollHeight}, 300)
+        
+                        channelProgress[idx]++
+                    }, 1150 * index)
+                })
+                setTimeout(() => {
+                    $('#animWrapper').fadeOut(150)
+                    typing = false
+                }, 1150 * channels[activeChannel].length)
+            }, 150 + (idx > 0 ? 150 : 0))
+        }
     }
 }
 function newMessage(text) {
@@ -114,8 +118,6 @@ function newMessage(text) {
         </div>
     </div>`)
 }
-// skip button
-
 
 // on start
 $(document).on('DOMContentLoaded', () => {
