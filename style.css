@@ -73,6 +73,21 @@ h1, h2, h3, p, li, ul {
     background-color: color-mix(in srgb, var(--accent), white 50%);
     cursor: pointer;
 }
+.button2 {
+    border: 2px solid var(--accent);
+    box-shadow: var(--box-shadow);
+    background-color: var(--bg);
+    border-radius: 15px;
+    padding: 5px;
+    color: var(--accent);
+    font-family: Header;
+    font-size: 1.5rem;
+    transition: background-color 150ms;
+}
+.button2:hover {
+    background-color: color-mix(in srgb, var(--accent), var(--bg) 75%);
+    cursor: pointer;
+}
 
 /* sidebar */
 header {
@@ -132,6 +147,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    flex-grow: 1;
 }
 /* header */
 #channelName {
@@ -168,6 +184,33 @@ main {
 }
 .msg h3 {
     color: var(--accent);
+}
+/* typing anims */
+#animWrapper {
+    display: none;
+    /* display: flex; */
+    position:absolute;
+    justify-content: space-between;
+    align-items: stretch;
+    bottom: 38px;
+    left: 353px;
+    width: calc(100% - 391px);
+}
+#typing {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    background-color: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 15px;
+    padding: 5px;
+    box-shadow: var(--box-shadow);
+}
+#typing img {
+    height: 25px;
+    width: 55px;
+    object-fit: cover;
+    object-position: 50% calc(50% + 3px);
 }
 
 /* popup */
