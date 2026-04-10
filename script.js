@@ -1,11 +1,11 @@
 let channels = {
     "Home":[
         '<h2>Welcome to my portfolio website!</h2> You can use the channels on the left to navigate through different sections. If you want a quick overview, click my profile on the bottom of the channel list.', 
-        'If you want to skip the typing messages at any time, hit the skip button in the bottom right to show all the messages of a channel.'
     ],
     "About Me":[
         "My name is Jeven Shirrell, and I'm currently a junior in high school. My main hobbies are drums, game development and music production",
-        "I've always had a passion for coding and programming, making some of my first websites at just 9 years old and a few games at 11."
+        "I've always had a passion for coding and programming, making some of my first websites at just 9 years old and a few games at 11. Games and web dev have always been my strong suits.",
+        "I'm also very passionate about music, whether that's listening or creating it. My favorite genres are Christian Hip Hop and RnB, and some of my favorite artists are Jon Keith and Torey D'Shaun. I've been mkaing music for around 7 years and drumming for 5."
     ],
     "Skills":[
         '<h2>Game development</h2>I\'ve been making video games since I was 11 years old on scratch. I moved from a modded version known as Turbowarp, to Godot in mid-2025 and have been working with it ever since. You can see some of my projects <span class="link" onclick="switchChannel(\'Projects\')">here.</span>',
@@ -76,6 +76,7 @@ function switchChannel(channel) {
                 $(this).remove()
             })
         })
+        $('#messagesWrapper').scrollHeight = 0
         // load seen messages
         if (channelProgress[idx] > 0) {
             $.each(channels[activeChannel].slice(0, channelProgress[idx]), (index, value) => {
@@ -84,7 +85,6 @@ function switchChannel(channel) {
                     $('#messagesWrapper').children().last().hide().fadeIn(150)
                 }, 150)
             })
-            $('#messagesWrapper').delay(155).animate({scrollTop: $('#messagesWrapper')[0].scrollHeight}, 300)
         }
         // load unseen messages
         if (channelProgress[idx] < channels[activeChannel].length) {
