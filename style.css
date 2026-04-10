@@ -55,6 +55,13 @@ h1, h2, h3, p, li, ul {
     padding: 5px;
     border-radius: 15px;
 }
+.link {
+    color: var(--accent);
+    text-decoration: underline;
+}
+.link:hover {
+    cursor: pointer;
+}
 .svg {
     height: 15px;
 }
@@ -118,7 +125,7 @@ header {
     cursor: pointer;
 }
 .channelList .activeChannel {
-    background-color: color-mix(in srgb, var(--shade2), white 5%) !important;
+    background-color: color-mix(in srgb, var(--shade2), white 15%) !important;
 }
 /* mini profile */
 .profile {
