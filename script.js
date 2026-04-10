@@ -14,15 +14,13 @@ let channels = {
         '<h2>Music</h2>I have been playing the drums for over 5 years and producing for around 7. I have played drums in a band and for my church as well. I have hopped around DAWs for many years until I landed on Ableton in 2024 for production.'
     ],
     "Projects":[
-        // TODO: VVVVV publish homepahe to github VVVVV
-        '<h2><a class="link" href="#">Personal Homepage</a></h2>A personal replacement for the new tab on my browser. This was one of my West-MEC projects.',
-        '<h2><a class="link" href="https://livingwaterstudios.itch.io/brushed">Brushed</a></h2>A short game made in 2 weeks for the <a class="link" href="https://itch.io/jam/quebles-jam-2026">Queble Game Jam 2026.</a> Made in Godot 4, you play as a character trying to escape a colorless world by painting it.',
-        '<h2><a class="link" href="https://jevenshirrell.github.io/pc_store_website/">PC Store Website</a></h2>Another West-MEC project that tested our teamwork skills. Two other classmates and I made a multi-page website for a fictional PC store.',
-        '<h2><a class="link" href="https://jevenshirrell.github.io/snacks_manager/">Snack Manager</a></h2>A more simpler app made to manage a shopping list style snack list. I mainly tried to showcase my design skills with this project. Made for another West-MEC assignment.',
+        '<h2><a class="link" href="https://github.com/jevenshirrell/homepage">Personal Homepage</a></h2><img src="./imgs/Screenshot 2026-04-10 105310.png" class="thumb">A personal replacement for the new tab on my browser. This was one of my West-MEC projects.',
+        '<h2><a class="link" href="https://livingwaterstudios.itch.io/brushed">Brushed</a></h2><img src="./imgs/Screenshot 2026-04-10 105712.png" class="thumb">A short game made in 2 weeks for the <a class="link" href="https://itch.io/jam/quebles-jam-2026">Queble Game Jam 2026.</a> Made in Godot 4, you play as a character trying to escape a colorless world by painting it.',
+        '<h2><a class="link" href="https://jevenshirrell.github.io/pc_store_website/">PC Store Website</a></h2><img src="./imgs/Screenshot 2026-04-10 105737.png" class="thumb">Another West-MEC project that tested our teamwork skills. Two other classmates and I made a multi-page website for a fictional PC store.',
+        '<h2><a class="link" href="https://jevenshirrell.github.io/snacks_manager/">Snack Manager</a></h2><img src="./imgs/Screenshot 2026-04-10 105802.png" class="thumb">A more simpler app made to manage a shopping list style snack list. I mainly tried to showcase my design skills with this project. Made for another West-MEC assignment.',
     ],
     "Resume":[
-        // TODO: VVVVV pdf link VVVVVV
-        '<h2><a class="link" href="#">PDF Link</a></h2>',
+        '<h2><a class="link" href="https://docs.google.com/document/d/1X4ucaNnFKgA3Kagi_PBIr7B_dg8y4qgdT7mXaMCG27o/edit?usp=sharing">Document Link</a></h2>',
         '<h2>Jeven R. Shirrell</h2>jrslivingwaterstudios@gmail.com',
         '<h2>Skills</h2>- Web development<br>- Game development<br>- Music production<br>- Drumming',
         '<h2>Experience</h2><strong>Founder</strong> - AAA 3D Printing Solutions<br>January 2025 - July 2025<br>- Create and sell 3D printed products online<br>- Design and produce custom-ordered 3D printed items<br><br><strong>Freelance Game Developer</strong> - Fiverr<br>August 2023 - August 2024<br>- Create, code, and develop video games based on customer description on Fiverr',
@@ -30,7 +28,16 @@ let channels = {
         '<h2>Accomplishments</h2>- NVCA Principal’s Honors<br>- Served in Jamaica mission trip in 2023 and 2024 and Ecuador mission trip in 2025 and 2026<br>- Won Best Safe Driving PSA Arizona in the 2025 Streets, Art, SAFE Film Competition<br>',
     ],
     "Contact":[
-        '<strong>Email: </strong><a href="mailto:jrslivingwaterstudios@gmail.com" class="link">jrslivingwaterstudios@gmail.com<a>'
+        '<strong>Email me here: </strong><a href="mailto:jrslivingwaterstudios@gmail.com" class="link">jrslivingwaterstudios@gmail.com<a>',
+        `<strong>Or here:</strong>
+        <form id="contactForm" action="https://formsubmit.co/421dd47bcd4036fc6f725c7098993d90" method="POST">
+            <div class="row">
+                <input type="text" id="formName" name="name" placeholder="Name" class="panel"></input>
+                <input type="text" id="formEmail" name="email" placeholder="Email" class="panel"></input>
+            </div>
+            <textarea id="formMessage" name="message" placeholder="Message" class="panel" cols="10" rows="10"></textarea>
+            <input type=submit class="button1"></input>
+        </form>`,
     ],
 }
 let activeChannel = ''
@@ -39,10 +46,16 @@ let typing = false
 
 // profile popup
 $('#miniProf').on('click', function() {
-    $('#profilePopup').fadeToggle(150);
+    $('#profilePopup').fadeIn(150);
 })
+// close on outside click
+$(document.body).on('click', () => {
+    if (!$('#profilePopup').is(':hover') && $('#profilePopup').css('opacity') == '1') {
+        $('#profilePopup').fadeToggle(150);
+    }
+})
+
 // channels
-// messages
 $('.channel').on('click', function() {
     if (!typing && activeChannel != this.textContent) {
         $('.channel').removeClass('activeChannel')
@@ -51,7 +64,8 @@ $('.channel').on('click', function() {
     } 
 })
 
-// add support for checking like previous lines
+// messages
+// TODO: add support for checking like previous lines
 function switchChannel(channel) {
     typing = true
     activeChannel = channel
@@ -67,7 +81,7 @@ function switchChannel(channel) {
         $.each(channels[activeChannel], (index, value) => {
             setTimeout(() => {
                 $('#messagesWrapper').append(`<div class="msg card">
-                    <img src="./imgs/pfp.png" alt="Profile Picture">
+                    <img src="./imgs/pfp.png" alt="Profile Picture" class="pfp">
                     <div class="textWrapper">
                         <h3 class="headerFont">Jeven Shirrell</h3>
                         <p>${value}</p>

@@ -188,12 +188,43 @@ main {
     align-items: center;
     gap: 15px;
 }
-.msg img {
+.msg .pfp {
     height: 75px;
     border-radius: 100%;
+    align-self: flex-start;
+}
+.msg .thumb {
+    box-shadow: var(--box-shadow);
+    height: 200px;
+    border-radius: 15px;
+    display: block;
+    border: 2px solid var(--accent);
 }
 .msg h3 {
     color: var(--accent);
+}
+/* contact form */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#contactForm .panel{
+    border-color: var(--accent);
+    color: var(--accent);
+    font-family: Text;
+    outline: none;
+}
+#contactForm .panel::placeholder {
+    color: color-mix(in srgb, var(--accent), transparent 50%);
+}
+#contactForm .row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+#contactForm textarea {
+    resize: none;
 }
 /* typing anims */
 #animWrapper {
