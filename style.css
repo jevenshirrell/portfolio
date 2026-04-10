@@ -117,6 +117,9 @@ header {
     background-color: color-mix(in srgb, var(--shade2), white 5%) !important;
     cursor: pointer;
 }
+.channelList .activeChannel {
+    background-color: color-mix(in srgb, var(--shade2), white 5%) !important;
+}
 /* mini profile */
 .profile {
     height: 100px;

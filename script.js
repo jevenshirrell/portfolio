@@ -6,6 +6,9 @@ let channels = {
     "Resume":[],
     "Contact":[],
 }
+let activeChannel = ''
+let typing = false
+
 
 // profile popup
 $('#miniProf').on('click', function() {
@@ -14,6 +17,17 @@ $('#miniProf').on('click', function() {
 // channels
 // messages
 $('.channel').on('click', function() {
+    if (!typing && activeChannel != this.textContent) {
+        switchChannel(this.textContent)
+    } 
+})
+
+function switchChannel(channel) {
+    typing = true
+    activeChannel = channel
+    $('.channel').removeClass('activeChannel')
+    $(this).addClass('activeChannel')
+
     $('#messagesWrapper').children().each(function() {
         $(this).fadeOut(150, () => {
             $(this).remove()
@@ -21,7 +35,7 @@ $('.channel').on('click', function() {
     })
     setTimeout(() => {
         $('#animWrapper').fadeIn(150).css({'display':'flex'})
-        $.each(channels[this.textContent], (index, value) => {
+        $.each(channels[activeChannel], (index, value) => {
             setTimeout(() => {
                 $('#messagesWrapper').append(`<div class="msg card">
                     <img src="./imgs/pfp.png" alt="Profile Picture">
@@ -30,10 +44,17 @@ $('.channel').on('click', function() {
                         <p>${value}</p>
                     </div>
                 </div>`)
-                $('#messagesWrapper').children().last().hide().delay(1000).fadeIn(500)
-            }, 1500 * index)
+                $('#messagesWrapper').children().last().hide().delay(1000).fadeIn(150)
+            }, 1150 * index)
         })
-        setTimeout(() => {$('#animWrapper').fadeOut(150)}, 1500 * channels[this.textContent].length)
-        
+        setTimeout(() => {
+            $('#animWrapper').fadeOut(150)
+            typing = false
+        }, 1150 * channels[activeChannel].length)
     }, 150)
+}
+
+// on start
+$(document).on('DOMContentLoaded', () => {
+    switchChannel('Home')
 })
