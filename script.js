@@ -1,4 +1,4 @@
-// TODO: skip btn, save message progress, scroll down on msg
+// TODO: skip btn
 let channels = {
     "Home":[
         '<h2>Welcome to my portfolio website!</h2> You can use the channels on the left to navigate through different sections. If you want a quick overview, click my profile on the bottom of the channel list.', 
@@ -40,6 +40,7 @@ let channels = {
         </form>`,
     ],
 }
+let channelProgress = [0, 0, 0, 0, 0, 0]
 let activeChannel = ''
 let typing = false
 
@@ -51,7 +52,7 @@ $('#miniProf').on('click', function() {
 // close on outside click
 $(document.body).on('click', () => {
     if (!$('#profilePopup').is(':hover') && $('#profilePopup').css('opacity') == '1') {
-        $('#profilePopup').fadeToggle(150);
+        $('#profilePopup').fadeOut(150);
     }
 })
 
@@ -65,36 +66,53 @@ $('.channel').on('click', function() {
 })
 
 // messages
-// TODO: add support for checking like previous lines
 function switchChannel(channel) {
-    typing = true
+    let idx = Object.keys(channels).indexOf(channel)
     activeChannel = channel
-
+    
     $('#messagesWrapper').children().each(function() {
         $(this).fadeOut(150, () => {
             $(this).remove()
         })
     })
-    setTimeout(() => {
-        $('#channelName h3').html(channel)
-        $('#animWrapper').fadeIn(150).css({'display':'flex'})
-        $.each(channels[activeChannel], (index, value) => {
+    if (channelProgress[idx] > 0) {
+        $.each(channels[activeChannel].slice(0, channelProgress[idx]), (index, value) => {
             setTimeout(() => {
-                $('#messagesWrapper').append(`<div class="msg card">
-                    <img src="./imgs/pfp.png" alt="Profile Picture" class="pfp">
-                    <div class="textWrapper">
-                        <h3 class="headerFont">Jeven Shirrell</h3>
-                        <p>${value}</p>
-                    </div>
-                </div>`)
-                $('#messagesWrapper').children().last().hide().delay(1000).fadeIn(150)
-            }, 1150 * index)
+                newMessage(value)
+                $('#messagesWrapper').children().last().hide().fadeIn(150)
+            }, 150)
         })
+        $('#messagesWrapper').animate({scrollTop: $('#messagesWrapper')[0].scrollHeight}, 300)
+    }
+    if (channelProgress[idx] < channels[activeChannel].length) {
+        typing = true
         setTimeout(() => {
-            $('#animWrapper').fadeOut(150)
-            typing = false
-        }, 1150 * channels[activeChannel].length)
-    }, 150)
+            $('#channelName h3').html(channel)
+            $('#animWrapper').fadeIn(150).css({'display':'flex'})
+            $.each(channels[activeChannel].slice(channelProgress[idx], channels[activeChannel].length), (index, value) => {
+                setTimeout(() => {
+                    newMessage(value)
+                    $('#messagesWrapper').children().last().hide().delay(1000).fadeIn(150)
+                    $('#messagesWrapper').delay(1000).animate({scrollTop: $('#messagesWrapper')[0].scrollHeight}, 300)
+    
+                    channelProgress[idx]++
+                }, 1150 * index)
+            })
+            setTimeout(() => {
+                $('#animWrapper').fadeOut(150)
+                typing = false
+            }, 1150 * channels[activeChannel].length)
+        }, 150 + (idx > 0 ? 150 : 0))
+    }
+}
+function newMessage(text) {
+    $('#messagesWrapper').append(`<div class="msg card">
+        <img src="./imgs/pfp.png" alt="Profile Picture" class="pfp">
+        <div class="textWrapper">
+            <h3 class="headerFont">Jeven Shirrell</h3>
+            <p>${text}</p>
+        </div>
+    </div>`)
 }
 // skip button
 
