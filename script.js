@@ -5,11 +5,12 @@ let channels = {
     "About Me":[
         "My name is Jeven Shirrell, and I'm currently a junior in high school. My main hobbies are drums, game development and music production",
         "I've always had a passion for coding and programming, making some of my first websites at just 9 years old and a few games at 11. Games and web dev have always been my strong suits.",
-        "I'm also very passionate about music, whether that's listening or creating it. My favorite genres are Christian Hip Hop and RnB, and some of my favorite artists are Jon Keith and Torey D'Shaun. I've been mkaing music for around 7 years and drumming for 5."
+        "I'm also very passionate about music, whether that's listening or creating it. My favorite genres are Christian Hip Hop and RnB, and some of my favorite artists are Jon Keith and Torey D'Shaun. I've been mkaing music for around 7 years and drumming for 5.",
+        "Some of my goals are to build a succesful career in web development and release a full game on Steam. I also want to be able to do indie game development full time eventually.",
     ],
     "Skills":[
         '<h2>Game development</h2>I\'ve been making video games since I was 11 years old on scratch. I moved from a modded version known as Turbowarp, to Godot in mid-2025 and have been working with it ever since. You can see some of my projects <span class="link" onclick="switchChannel(\'Projects\')">here.</span>',
-        '<h2>Web Development</h2>I am currently enrolled in the Coding program at West-MEC. In this program we have covered HTML, CSS, and JS to an indermediate level and created many projects with these skills. The program also provides us with Information Technology Specialist OD 301 HTML/CSS and Information Technology Specialist OD 302 Java Script certifications.',
+        '<h2>Web Development</h2>I am currently enrolled in the Coding program at West-MEC. In this program we have covered HTML, CSS, JS, and Jquery to an indermediate level and created many projects with these skills. The program also provides us with Information Technology Specialist OD 301 HTML/CSS and Information Technology Specialist OD 302 Java Script certifications.',
         '<h2>Music</h2>I have been playing the drums for over 5 years and producing for around 7. I have played drums in a band and for my church as well. I have hopped around DAWs for many years until I landed on Ableton in 2024 for production.'
     ],
     "Projects":[
@@ -110,13 +111,13 @@ function switchChannel(channel) {
     }
 }
 function newMessage(text) {
-    $('#messagesWrapper').append(`<div class="msg card">
+    $('#messagesWrapper').append(`<article class="msg card">
         <img src="./imgs/pfp.png" alt="Profile Picture" class="pfp">
         <div class="textWrapper">
             <h3 class="headerFont">Jeven Shirrell</h3>
             <p>${text}</p>
         </div>
-    </div>`)
+    </article>`)
 }
 
 // on start
