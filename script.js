@@ -58,7 +58,15 @@ $(document.body).on('click', () => {
 
 // channels
 $('.channel').on('click', function() {
-    switchChannel(this.textContent)
+    if ($(window).width() > 768) {
+        switchChannel(this.textContent)
+    } else {
+        $('header').fadeOut(150)
+        switchChannel(this.textContent)
+        setTimeout(() => {
+            $('main').css('display', 'flex').hide().fadeIn(150)
+        }, 150)
+    }
 })
 
 // messages
@@ -119,6 +127,14 @@ function newMessage(text) {
         </div>
     </article>`)
 }
+
+// mobile functionailty
+$('.backBtn').on('click', () => {
+    $('main').fadeOut(150)
+    setTimeout(() => {
+        $('header').css('display', 'flex').hide().fadeIn(300)
+    }, 150)
+})
 
 // on start
 $(document).on('DOMContentLoaded', () => {
