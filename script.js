@@ -140,3 +140,14 @@ $('.backBtn').on('click', () => {
 $(document).on('DOMContentLoaded', () => {
     switchChannel('Home')
 })
+
+$(window).resize(() => {
+    if ($(window).width() > 768) {
+        $('header').css('display', 'flex')
+        $('main').css('display', 'flex')
+        console.log('w')
+    } else {
+        $('header').css('display', 'flex')
+        $('main').hide()
+    }
+})

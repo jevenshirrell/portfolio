@@ -114,6 +114,9 @@ h1, h2, h3, p, li, ul {
 }
 
 /* sidebar */
+header, main {
+    border-radius: 30px !important;
+}
 header {
     width: 300px;
     height: 100%;
@@ -122,6 +125,7 @@ header {
     align-items: stretch;
     gap: 15px;
     background-color: var(--shade1) !important;
+    flex-shrink: 0;
 }
 /* channels */
 .channelList {
@@ -333,7 +337,7 @@ main {
     /* sidebar */
     header {
         width: 100%;
-        display: none;
+        /* display: none; */
     }
     .hero img {
         height: 100px;
@@ -363,7 +367,7 @@ main {
 
     /* messages */
     main {
-        /* display: none; */
+        display: none;
         width: 100%;
     }
     #channelName {
