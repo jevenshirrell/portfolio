@@ -78,6 +78,7 @@ function switchChannel(channel) {
         // active channel
         $('.channel').removeClass('activeChannel')
         $(`#channel${idx + 1}`).addClass('activeChannel')
+        $('#channelName h3').html(channel)
 
         // close previous channel
         $('#messagesWrapper').children().each(function() {
@@ -99,7 +100,6 @@ function switchChannel(channel) {
         if (channelProgress[idx] < channels[activeChannel].length) {
             typing = true
             setTimeout(() => {
-                $('#channelName h3').html(channel)
                 $('#animWrapper').fadeIn(150).css({'display':'flex'})
                 $.each(channels[activeChannel].slice(channelProgress[idx], channels[activeChannel].length), (index, value) => {
                     setTimeout(() => {
@@ -130,10 +130,12 @@ function newMessage(text) {
 
 // mobile functionailty
 $('.backBtn').on('click', () => {
-    $('main').fadeOut(150)
-    setTimeout(() => {
-        $('header').css('display', 'flex').hide().fadeIn(300)
-    }, 150)
+    if (!typing) {
+        $('main').fadeOut(150)
+        setTimeout(() => {
+            $('header').css('display', 'flex').hide().fadeIn(300)
+        }, 150)
+    }
 })
 
 // on start

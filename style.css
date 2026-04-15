@@ -34,6 +34,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 15px;
+    justify-content: center;
 }
 h1, h2, h3, p, li, ul {
     margin: 0;
@@ -201,6 +202,9 @@ main {
 #channelName .backBtn {
     height: 30px;
 }
+#channelName .backBtn:hover {
+    cursor: pointer;
+}
 /* message wrapper */
 #messagesWrapper {
     flex-grow: 1;
@@ -337,6 +341,7 @@ main {
     /* sidebar */
     header {
         width: 100%;
+        max-width: 400px;
         /* display: none; */
     }
     .hero img {
@@ -363,6 +368,8 @@ main {
     #profilePopup {
         bottom: 117px;
         width: calc(100% - 52px);
+        max-width: 376px;
+        left: calc(38px + (calc((100% - 452px) / 2)));
     }
 
     /* messages */
