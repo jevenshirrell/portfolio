@@ -2,9 +2,9 @@
 - The purpose of my portfolio is to display my skills as a developer and designer and what I've made with them
 - The audience I am aiming for is general, but mainly job recruiters
 - The message I want to convey is that I am skilled in web development and design
-# 2. Inspiration
+# 2. Inspiration Research
 https://docs.google.com/document/d/1OlRVWq7SxlmrRlbWYAAUVv2--bZCl4zRAJRw47ZTfxc/edit?usp=sharing
-# 3. Planning
+# 3. Planning Notes
 - Custom version of an app like discord
 	- Stylized, not direct recreation like #1
 	- One server
