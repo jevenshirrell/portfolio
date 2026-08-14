@@ -172,6 +172,7 @@ header {
     margin-left: -11.6px;
     width: calc(100% + 22px);
     object-fit: cover;
+    object-position: 0 -15px;
     mask-image: linear-gradient(0deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
 }
 
@@ -346,7 +347,7 @@ main {
     }
     .hero img {
         height: 100px;
-        object-position: 0 -25px;
+        object-position: 0 -50px;
     }
     .name h2{
         text-align: center;
