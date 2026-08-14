@@ -6,7 +6,7 @@ let channels = {
         "<p>My name is Jeven Shirrell, and I'm currently a junior in high school. My main hobbies are drums, game development and music production</p>",
         "<p>I've always had a passion for coding and programming, making some of my first websites at just 9 years old and a few games at 11. Games and web dev have always been my strong suits.</p>",
         "<p>I'm also very passionate about music, whether that's listening or creating it. My favorite genres are Christian Hip Hop and RnB, and some of my favorite artists are Jon Keith and Torey D'Shaun. I've been making music for around 7 years and drumming for 5. I just recently wrote my first fully produced and recorded song called i need You.</p>",
-        "<p>Some of my goals are to build a succesful career in web development and release a full game on Steam. I also want to be full time artist eventually.</p>",
+        "<p>Some of my goals are to build a succesful career in web development and release a full game on Steam. I also want to be a full time artist eventually.</p>",
     ],
     "Skills":[
         '<h2>Web Development</h2><p>I am currently enrolled in the Coding program at West-MEC. This program covers develpoment in HTML, CSS, JS, Jquery, Tailwind, Node, and react to an indermediate level and I have created many websites with these skills. I have also earned the following relevant certifications from this program:<ul><li>Information Technology Specialist in HTML and CSS</li><li>Information Technology Specialist in HTML5 Application Development</li></ul></p>',
@@ -25,6 +25,7 @@ let channels = {
         '<h2>Jeven R. Shirrell</h2><p>jrslivingwaterstudios@gmail.com</p>',
         '<h2>Skills</h2><p>- Web development<br>- Game development<br>- Music production<br>- Drumming</p>',
         '<h2>Experience</h2><p><strong>Founder</strong> - AAA 3D Printing Solutions<br>January 2025 - July 2025<br>- Create and sell 3D printed products online<br>- Design and produce custom-ordered 3D printed items<br><br><p><strong>Junior High Coach</strong> - CCV Anthem<br>November 2025 - Present<br>- Challenge and lead 8th grade students to follow Christ<br><br><strong>Team Member</strong> - Shake Shack<br>July 2026 - Present<br>- Lead with genuine warmth and care for team members and guests<br>- Prepare and assemble food orders to Shake Shack standards</p>',
+        '<h2>Certifications</h2><p><strong>PCEP – Certified Entry-Level Python Programmer</strong> - April 2026 <br><strong>Information Technology Specialist in HTML and CSS</strong> - April 2026 <br><strong>Information Technology Specialist in HTML5 Application Development</strong> - May 2026</p>',
         '<h2>Education</h2><p><strong>North Valley Christian Academy, Phoenix, AZ</strong> - High School Diploma (In Progress)<br>August 2023 - May 2026<br><br><strong>Sunrise Mountain High School, Peoria, AZ</strong> - High School Diploma (In Progress)<br>August 2026 - May 2027<br><br><strong>West-MEC Northeast Campus, Phoenix, AZ</strong><br>July 2025 - May 2027</p>',
         '<h2>Accomplishments</h2><p>- NVCA Principal’s Honors<br>- Served in Jamaica mission trip in 2023 and 2024 and Ecuador mission trip in 2025 and 2026<br>- Won Best Safe Driving PSA Arizona in the 2025 Streets, Art, SAFE Film Competition<br></p>',
     ],
